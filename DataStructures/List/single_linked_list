@@ -199,10 +199,9 @@ def sub_list(my_list, pos_i, num_elements):
     nodo_c["next"]=None
     return newlist
 
-def default_function(elemen_1, element_2):
+def default_sort_criteria(element_1, element_2):
 
-   if elemen_1 > element_2:
-      return 1
-   elif elemen_1 < element_2:
-      return -1
-   return 0
+   is_sorted = False
+   if float(element_1["average_rating"]) < float(element_2["average_rating"]):
+      is_sorted = True
+   return is_sorted
