@@ -86,10 +86,22 @@ def default_sort_criteria(element_1, element_2):
    return is_sorted
 
 def shell_sort(my_list, sort_crit):
-    n=size(my_list)
-    gap=1
-    while gap < (n//3): 
-        gap = 3*gap + 1 
+    n = len(my_list)
+    gap = n // 2
+    
+    while gap > 0:
+        for i in range(gap, n):
+            iact = my_list[i]
+            j = i
+            
+            # usamos la función de comparación
+            while j >= gap and not sort_crit(my_list[j - gap], iact):
+                my_list[j] = my_list[j - gap]
+                j -= gap
+            
+            my_list[j] = iact
+        gap //= 2
+    return my_list
         
     
         

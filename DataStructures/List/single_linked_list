@@ -205,3 +205,4 @@ def default_sort_criteria(element_1, element_2):
    if float(element_1["average_rating"]) < float(element_2["average_rating"]):
       is_sorted = True
    return is_sorted
+
