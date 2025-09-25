@@ -113,8 +113,17 @@ def shell_sort(my_list, sort_crit):
 
 
 
-        
-        
-                    
-    
 
+def selection_sort(my_list, sort_crit):
+        for i in range(my_list["elements"]):
+            menor=i
+            for j in range(i,len(my_list["elements"])):
+                if sort_crit:
+                    if default_sort_criteria(my_list["elements"][j],my_list["elements"][menor]):
+                        menor = my_list["elements"][j]
+                else:
+                    if not default_sort_criteria(my_list["elements"][j],my_list["elements"][menor]):
+                        menor = my_list["elements"][j]                    
+            exchange(my_list,my_list["elements"][menor],my_list["elements"][i])
+        return my_list
+    
