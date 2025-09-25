@@ -198,3 +198,19 @@ def sub_list(my_list, pos_i, num_elements):
     newlist["last"]=anterior
     nodo_c["next"]=None
     return newlist
+
+
+def shell_sort(my_list, default_sort_criteria):
+    n = my_list["size"]
+    gap = n // 2
+
+    while gap > 0:
+        for i in range(gap, n):
+            temporal = my_list["elements"][i]
+            j = i
+            while j >= gap and default_sort_criteria(temporal, my_list["elements"][j - gap]):
+                my_list["elements"][j] = my_list["elements"][j - gap]
+                j -= gap
+            my_list["elements"][j] = temporal
+        gap //= 2
+    return my_list
