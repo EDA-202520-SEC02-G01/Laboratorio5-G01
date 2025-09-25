@@ -53,11 +53,12 @@ def print_menu():
     Menu de usuario
     """
     print("Bienvenido")
-    #TODO: agregar opción 0 para escoger el tipo de estructura de datos y opción 5 para seleccionar el algoritmo de ordenamiento
+    print("0- Seleccionar estructura de datos")
     print("1- Cargar información en el catálogo")
     print("2- Consultar la información de un libro")
     print("3- Consultar los libros de un autor")
     print("4- Libros por género")
+    print("5- Seleccionar algoritmo de ordenamiento")
     print("6- Seleccionar muestra de libros")
     print("7- Ordenar los libros por rating")
     print("8- Salir")
@@ -146,7 +147,10 @@ def print_sort_results(sort_books, sample=3):
             book = data_structure.get_element(sorted_books, book_pos)
             # TODO: Completar la lógica para imprimir la información del libro.
             # Disminuir el contador de la muestra.
+            print(print_book_info(sort_books[book]))
             sample -= 1
+        else:
+            print("no se encontro ningun libro")
 
 # variables utiles para el programa
 

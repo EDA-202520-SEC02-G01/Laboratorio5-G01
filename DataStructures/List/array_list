@@ -117,3 +117,33 @@ def shell_sort(my_list, sort_crit):
         gap //= 2
     return my_list
     
+
+        
+def insertion_sort(my_list, default_sort_criteria):
+    for i in range(1, my_list["size"]):
+        j = i
+        while j > 0 and default_sort_criteria(my_list.getElement(j), my_list.getElement(j-1)):
+            my_list.exchange (j, j-1)
+            j -= 1 
+    return my_list   
+
+def quick_sort(my_list, default_sort_criteria):
+   
+    def quick_sort_help(my_list, low, high):
+        if low < high:
+            pi = partition(my_list, low, high, default_sort_criteria)
+            quick_sort_help(my_list, low, pi - 1)
+            quick_sort_help(my_list, pi + 1, high)
+
+    def partition(my_list, low, high):
+        forw = low
+        lead = high
+        while lead < high:
+            if default_sort_criteria(my_list.getElement(lead), my_list.getElement(high)):
+                my_list.exchange(forw, lead)
+                forw += 1
+            lead += 1
+        my_list.exchange(forw, high)
+        return forw
+
+         
