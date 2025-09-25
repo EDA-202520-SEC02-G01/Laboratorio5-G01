@@ -144,8 +144,7 @@ def print_sort_results(sort_books, sample=3):
         if sample > 0:
             # Obtener el libro en la posición actual.
             book = data_structure.get_element(sorted_books, book_pos)
-            # TODO: Completar la lógica para imprimir la información del libro.
-            # Disminuir el contador de la muestra.
+        
             print(print_book_info(sort_books[book]))
             sample -= 1
         else:
@@ -194,6 +193,11 @@ def main():
             print("Cargando información de los archivos ....")
             bk, at, tg, bktg = load_data(control)
             #TODO: imprimir la cantidad de libros, autores, géneros y asociaciones de géneros a libros cargados
+            print("cantidad libros: "+ logic.book_size(control))
+            print("Autores: "+logic.author_size)
+            print("tags: "+ logic.tag_size)
+            print("tag y libro "+ logic.book_tag_size)
+            
 
         elif int(inputs[0]) == 2:
             number = input("Ingrese el id del libro que desea buscar: ")
@@ -224,8 +228,8 @@ def main():
         elif int(inputs[0]) == 7:
             print("Ordenando los libros por rating ...")
             result = logic.sort_books(control)
-            #TODO:imprimir el resultado del ordenamiento 
-            print("Tiempo de ejecución:", f"{result[1]:.3f}", "[ms]")
+            print("resultado:",f"{result[0]}" )
+            print("Tiempo de ejecución:", f"{result[1]:.3f}", "[ms]",)
 
         elif int(inputs[0]) == 8:
             # confirmar salida del programa
