@@ -102,17 +102,6 @@ def shell_sort(my_list, sort_crit):
             my_list[j] = iact
         gap //= 2
     return my_list
-        
-    
-        
-        
-        
-
-
-
-
-
-
 
 def selection_sort(my_list, sort_crit):
         for i in range(len(my_list["elements"])):
