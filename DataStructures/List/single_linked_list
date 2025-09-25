@@ -198,3 +198,11 @@ def sub_list(my_list, pos_i, num_elements):
     newlist["last"]=anterior
     nodo_c["next"]=None
     return newlist
+
+def default_sort_criteria(element_1, element_2):
+
+   is_sorted = False
+   if float(element_1["average_rating"]) < float(element_2["average_rating"]):
+      is_sorted = True
+   return is_sorted
+
