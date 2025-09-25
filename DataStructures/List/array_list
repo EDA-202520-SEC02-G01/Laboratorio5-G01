@@ -94,7 +94,7 @@ def shell_sort(my_list, sort_crit):
             iact = my_list[i]
             j = i
             
-            # usamos la función de comparación
+            
             while j >= gap and not sort_crit(my_list[j - gap], iact):
                 my_list[j] = my_list[j - gap]
                 j -= gap
