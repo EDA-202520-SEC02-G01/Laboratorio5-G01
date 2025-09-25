@@ -85,6 +85,20 @@ def default_sort_criteria(element_1, element_2):
       is_sorted = True
    return is_sorted
 
+def selection_sort(my_list, sort_crit):
+        for i in range(my_list["elements"]):
+            menor=i
+            for j in range(i,len(my_list["elements"])):
+                if sort_crit:
+                    if default_sort_criteria(my_list["elements"][j],my_list["elements"][menor]):
+                        menor = my_list["elements"][j]
+                else:
+                    if not default_sort_criteria(my_list["elements"][j],my_list["elements"][menor]):
+                        menor = my_list["elements"][j]                    
+            exchange(my_list,my_list["elements"][menor],my_list["elements"][i])
+        return my_list
+    
+
 def shell_sort(my_list, sort_crit):
     n = len(my_list)
     gap = n // 2
@@ -102,28 +116,4 @@ def shell_sort(my_list, sort_crit):
             my_list[j] = iact
         gap //= 2
     return my_list
-        
-    
-        
-        
-        
 
-
-
-
-
-
-
-def selection_sort(my_list, sort_crit):
-        for i in range(my_list["elements"]):
-            menor=i
-            for j in range(i,len(my_list["elements"])):
-                if sort_crit:
-                    if default_sort_criteria(my_list["elements"][j],my_list["elements"][menor]):
-                        menor = my_list["elements"][j]
-                else:
-                    if not default_sort_criteria(my_list["elements"][j],my_list["elements"][menor]):
-                        menor = my_list["elements"][j]                    
-            exchange(my_list,my_list["elements"][menor],my_list["elements"][i])
-        return my_list
-    
