@@ -206,3 +206,46 @@ def default_sort_criteria(element_1, element_2):
       is_sorted = True
    return is_sorted
 
+def selection_sort(my_list, sort_crit):
+    size =size(my_list)
+    for i in range(1, size + 1):  
+        for j in range(i, size + 1):
+            elem_j =get_element(my_list, j)
+            elem_menor =get_element(my_list, menor)
+
+            if sort_crit:
+                if default_sort_criteria(elem_j, elem_menor):
+                    menor = j
+            else:
+                if not default_sort_criteria(elem_j, elem_menor):
+                    menor = j
+
+    exchange(my_list, menor, i)  
+    return my_list
+
+def particion(my_list, lo, hi, sort_crit):
+    j_menor=lo
+    k_mayor=lo
+    pivot= get_element(my_list,lo)
+    for i in range(lo+1, hi+1):
+        if sort_crit(get_element(my_list,i), pivot):
+            exchange(my_list,j_menor+1,i )
+            k_mayor=i 
+            j_menor += 1 
+        elif sort_crit(pivot,get_element(my_list,i)):
+            k_mayor+=1
+        else:
+            k_mayor+=1
+    exchange(my_list,lo,j_menor)
+    return j_menor
+
+def quick_sort(my_list, sort_crit):
+    quick_sort_recursive(my_list, sort_crit, 0, size(my_list) - 1)
+    return my_list
+
+def quick_sort_recursive(my_list, sort_crit, lo, hi):
+
+    if lo < hi:
+        p = particion(my_list, sort_crit, lo, hi)
+        quick_sort_recursive(my_list, sort_crit, lo, p - 1)
+        quick_sort_recursive(my_list, sort_crit, p + 1, hi)
